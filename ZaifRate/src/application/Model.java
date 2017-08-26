@@ -16,7 +16,6 @@ public class Model {
 	Thread thread;
 
 	public Model() {
-		// TODO 自動生成されたコンストラクター・スタブ
 		mapper = new ObjectMapper();
 		freq = 2000;
 	}
