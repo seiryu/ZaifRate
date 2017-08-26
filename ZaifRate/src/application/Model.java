@@ -22,34 +22,12 @@ public class Model {
 	}
 
 	public void setCurrency_pair(String currency_pair) {
-		switch (currency_pair) {
-		case "BTC/JPY":
-			this.currency_pair = "btc_jpy";
-			break;
-		case "XEM/JPY":
-			this.currency_pair = "xem_jpy";
-			break;
-		case "ZAIF/JPY":
-			this.currency_pair = "zaif_jpy";
-			break;
-		case "MONA/JPY":
-			this.currency_pair = "mona_jpy";
-			break;
-		case "BCH/JPY":
-			this.currency_pair = "bch_jpy";
-			break;
-		case "XEM/BTC":
-			this.currency_pair = "xem_btc";
-			break;
-		case "ZAIF/BTC":
-			this.currency_pair = "zaif_btc";
-			break;
-		case "MONA/BTC":
-			this.currency_pair = "mona_btc";
-			break;
-		case "BCH/BTC":
-			this.currency_pair = "bch_btc";
-			break;
+		if(currency_pair.equals("BCY/JPY")) {
+			this.currency_pair = "bitcrystals_jpy";
+		} else if (currency_pair.equals("BCY/BTC")) {
+			this.currency_pair = "bitcrystals_btc";
+		}else {
+			this.currency_pair = currency_pair.toLowerCase().replace("/", "_");
 		}
 	}
 

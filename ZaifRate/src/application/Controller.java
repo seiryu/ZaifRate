@@ -27,7 +27,9 @@ public class Controller implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		model = new Model();
-		comboBox.getItems().addAll("BTC/JPY", "XEM/JPY", "ZAIF/JPY", "MONA/JPY", "BCH/JPY", "XEM/BTC", "ZAIF/BTC", "MONA/BTC", "BCH/BTC");
+		comboBox.getItems().addAll("BTC/JPY", "XEM/JPY", "ZAIF/JPY", "MONA/JPY", "BCH/JPY", "XEM/BTC", "ZAIF/BTC", "MONA/BTC", "BCH/BTC",
+				                   "XCP/JPY", "BCY/JPY", "SJCX/JPY", "FSCC/JPY", "PEPECASH/JPY", "CICC/JPY", "NCXC/JPY",
+				                   "XCP/BTC", "BCY/BTC", "SJCX/BTC", "FSCC/BTC", "PEPECASH/BTC", "CICC/BTC", "NCXC/JPY");
 		comboFreq.getItems().addAll("1秒", "2秒", "3秒", "5秒", "10秒");
 	}
 
