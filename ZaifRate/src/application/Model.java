@@ -11,7 +11,7 @@ import javafx.scene.paint.Color;
 
 public class Model {
 	private ObjectMapper mapper;
-	private String currency_pair;
+	private CurrencyPair currency_pair;
 	private int freq;
 	Thread thread;
 
@@ -20,14 +20,8 @@ public class Model {
 		freq = 2000;
 	}
 
-	public void setCurrency_pair(String currency_pair) {
-		if(currency_pair.equals("BCY/JPY")) {
-			this.currency_pair = "bitcrystals_jpy";
-		} else if (currency_pair.equals("BCY/BTC")) {
-			this.currency_pair = "bitcrystals_btc";
-		}else {
-			this.currency_pair = currency_pair.toLowerCase().replace("/", "_");
-		}
+	public void setCurrency_pair(CurrencyPair i_pair) {
+		this.currency_pair = i_pair;
 	}
 
 	public void setFreq(int freq) {
@@ -48,7 +42,7 @@ public class Model {
 					while(true) {
 						Price response;
 						String color;
-						response = mapper.readValue( new URL("https://api.zaif.jp/api/1/last_price/"+currency_pair), Price.class);
+						response = mapper.readValue( new URL("https://api.zaif.jp/api/1/last_price/"+ currency_pair.getSymbol()), Price.class);
 						if(response.getLast_price() > last_price) {
 							color = "#1E88E5";
 						}else if (response.getLast_price() < last_price) {

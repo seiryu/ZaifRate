@@ -17,7 +17,7 @@ public class Controller implements Initializable {
 	private Label label;
 
 	@FXML
-	private JFXComboBox<String> comboBox;
+	private JFXComboBox<String> comboCurrency;
 
 	@FXML
 	private JFXComboBox<String> comboFreq;
@@ -27,9 +27,7 @@ public class Controller implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		model = new Model();
-		comboBox.getItems().addAll("BTC/JPY", "XEM/JPY", "ZAIF/JPY", "MONA/JPY", "BCH/JPY", "XEM/BTC", "ZAIF/BTC", "MONA/BTC", "BCH/BTC",
-				                   "XCP/JPY", "BCY/JPY", "SJCX/JPY", "FSCC/JPY", "PEPECASH/JPY", "CICC/JPY", "NCXC/JPY",
-				                   "XCP/BTC", "BCY/BTC", "SJCX/BTC", "FSCC/BTC", "PEPECASH/BTC", "CICC/BTC", "NCXC/JPY");
+		comboCurrency.getItems().addAll(CurrencyPair.getAllSymbol_exp());
 		comboFreq.getItems().addAll("1秒", "2秒", "3秒", "5秒", "10秒");
 	}
 
@@ -41,8 +39,8 @@ public class Controller implements Initializable {
 	}
 
 	@FXML
-	public void comboBoxSelected(ActionEvent evt) {
-		model.setCurrency_pair(comboBox.getValue());
+	public void comboCurrencySelected(ActionEvent evt) {
+		model.setCurrency_pair(CurrencyPair.toEnum(comboCurrency.getValue()));
 		model.setPrice(label);
 	}
 }
